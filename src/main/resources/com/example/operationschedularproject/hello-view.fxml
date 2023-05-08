@@ -1,16 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.operationschedularproject.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.operationschedularproject.HelloController">
+   <children>
+      <TextField fx:id="username" layoutX="93.0" layoutY="148.0" prefHeight="34.0" prefWidth="215.0" />
+      <PasswordField fx:id="password" layoutX="92.0" layoutY="206.0" prefHeight="34.0" prefWidth="215.0" />
+      <Button fx:id="Login" layoutX="165.0" layoutY="277.0" mnemonicParsing="false" onAction="#onLogin" prefHeight="34.0" prefWidth="66.0" text="Login" textFill="WHITE" />
+      <Hyperlink fx:id="Create" layoutX="144.0" layoutY="323.0" text="Create new account" />
+      <Label fx:id="Title" layoutX="46.0" layoutY="14.0" prefHeight="59.0" prefWidth="400.0" text="Operation Schedular">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Label>
+      <Label layoutX="93.0" layoutY="130.0" style="-fx-font: 12px &quot;Roboto Light&quot;, &quot;Sans Serif Collection&quot;;" text="Username" textFill="GREY" />
+      <Label layoutX="92.0" layoutY="190.0" prefHeight="18.0" prefWidth="54.0" text="Password" textFill="GREY" />
+      <Label fx:id="message" layoutX="94.0" layoutY="248.0" prefHeight="18.0" prefWidth="215.0" textFill="RED" />
+   </children>
+</AnchorPane>

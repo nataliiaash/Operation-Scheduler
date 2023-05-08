@@ -61,7 +61,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                com.example.operationschedularproject/com.example.operationschedularproject.HelloApplication
+                                com.example.operationschedularproject/com.example.operationschedularproject.Menu
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
