@@ -9,11 +9,9 @@
     -fx-padding: 1px;
     -fx-background-radius: 15px;
 }
-#Username{
+#username{
     -fx-background-radius: 15px;
-
 }
-#Password{
+#password{
     -fx-background-radius: 15px;
-
 }
