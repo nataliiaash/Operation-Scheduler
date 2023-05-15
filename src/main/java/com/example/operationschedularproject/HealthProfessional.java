@@ -1,21 +1,20 @@
 package com.example.operationschedularproject;
-public class HealthProfessional extends Person{
-    private String profession;
 
-    private String location;
+import java.io.Serializable;
 
+public class HealthProfessional extends Person implements Serializable{
+    private String profession, location, username, password;
     private boolean isAvailable;
 
     public HealthProfessional(){
 
     }
 
-
-    public HealthProfessional(String name, String location, String profession, boolean isAvailable) {
+    public HealthProfessional(String name, String profession, String username, String password) {
         super(name);
-        this.location = location;
         this.profession = profession;
-        this.isAvailable = isAvailable;
+        this.username = username;
+        this.password = password;
     }
 
 
@@ -30,5 +29,45 @@ public class HealthProfessional extends Person{
     }
     public void bookMachine(){
 
+    }
+
+    public String getProfession() {
+        return profession;
+    }
+
+    public void setProfession(String profession) {
+        this.profession = profession;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public boolean isAvailable() {
+        return isAvailable;
+    }
+
+    public void setAvailable(boolean available) {
+        isAvailable = available;
     }
 }

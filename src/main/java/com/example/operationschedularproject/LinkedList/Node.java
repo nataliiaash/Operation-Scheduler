@@ -1,7 +1,9 @@
 package com.example.operationschedularproject.LinkedList;
 
-public class Node<T> {
-    T value;
+import java.io.Serializable;
+
+public class Node<T> implements Serializable {
+    public T value;
     Node<T> next;
 
     public Node(T value) {

@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
@@ -12,9 +13,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 
-public class Menu extends Application {
+public class Menu extends Application{
     public void start(Stage stage) throws Exception {
-        Parent root =  FXMLLoader.load(getClass().getResource("hello-view.fxml"));
+        Parent root =  FXMLLoader.load(getClass().getResource("LogInScreen.fxml"));
         Scene scene = new Scene(root,400,500);
         String css = this.getClass().getResource("style.css").toExternalForm();
         scene.getStylesheets().add(css);

@@ -9,8 +9,6 @@ import java.io.Serializable;
 public class DataBase implements Serializable {
     private LinkedList<HealthProfessional> healthProfessionalDB = new LinkedList<>();
     private Saver saver = new Saver();
-
-
     public void add(HealthProfessional healthProfessional) throws IOException {
         healthProfessionalDB.addFirst(healthProfessional);
         saver.save("Database.ser",healthProfessionalDB);
@@ -21,4 +19,11 @@ public class DataBase implements Serializable {
         saver.save("Database.ser",healthProfessionalDB);
     }
 
+    public LinkedList<HealthProfessional> getHealthProfessionalDB() {
+        return healthProfessionalDB;
+    }
+
+    public void setHealthProfessionalDB(LinkedList<HealthProfessional> healthProfessionalDB) {
+        this.healthProfessionalDB = healthProfessionalDB;
+    }
 }

@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HelloController {
+public class LogInController extends DataBase {
     @FXML
     private Label message;
     @FXML
@@ -35,13 +35,13 @@ public class HelloController {
             message.setText("Enter a valid Username");
         } else if(inPass.length() == 0 ){
             message.setText("Enter a valid Password");
-        } else if (!Username.equals(inUserName) || !Password.equals(inPass)){
+        } else if (!isLoginValid(inUserName,inPass)){
             message.setText("Username or Password not correct");
         } else {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("MainScreen.fxml"));
-            Parent root = loader.load();
-            Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
+            root = loader.load();
+            stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+            scene = new Scene(root);
             String css = this.getClass().getResource("style.css").toExternalForm();
             scene.getStylesheets().add(css);
             stage.setScene(scene);
@@ -50,5 +50,27 @@ public class HelloController {
 
         }
 
+    }
+
+    public void onCreate(ActionEvent e) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("CreateUserScreen.fxml"));
+        root = loader.load();
+        stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        String css = this.getClass().getResource("style.css").toExternalForm();
+        scene.getStylesheets().add(css);
+        stage.setScene(scene);
+        stage.sizeToScene();
+        stage.show();
+    }
+    private boolean isLoginValid(String username, String password){
+        int size = getHealthProfessionalDB().size();
+        for(int i = 0; i < size ; i++){
+            HealthProfessional healthProfessional = getHealthProfessionalDB().get(i).value;
+            if(healthProfessional.getUsername().equals(username) && healthProfessional.getPassword().equals(password)){
+                return true;
+            }
+        }
+        return false;
     }
 }

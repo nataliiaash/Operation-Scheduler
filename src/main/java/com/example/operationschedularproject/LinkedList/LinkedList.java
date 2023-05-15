@@ -1,6 +1,8 @@
 package com.example.operationschedularproject.LinkedList;
 
-public class LinkedList<T> {
+import java.io.Serializable;
+
+public class LinkedList<T> implements Serializable {
     private Node<T> head;
     private Node<T> tail;
     private int size;
@@ -14,6 +16,9 @@ public class LinkedList<T> {
             temp = temp.next;
         }
         return temp;
+    }
+    public int size(){
+        return this.size;
     }
 
     public int find(T value) throws EmptyException {

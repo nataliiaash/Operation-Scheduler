@@ -8,13 +8,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.operationschedularproject.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.operationschedularproject.LogInController">
    <children>
       <TextField fx:id="username" layoutX="93.0" layoutY="148.0" prefHeight="34.0" prefWidth="215.0" />
       <PasswordField fx:id="password" layoutX="92.0" layoutY="206.0" prefHeight="34.0" prefWidth="215.0" />
       <Button fx:id="Login" layoutX="165.0" layoutY="277.0" mnemonicParsing="false" onAction="#onLogin" prefHeight="34.0" prefWidth="66.0" text="Login" textFill="WHITE" />
-      <Hyperlink fx:id="Create" layoutX="144.0" layoutY="323.0" text="Create new account" />
+      <Hyperlink fx:id="Create" layoutX="144.0" layoutY="323.0" onAction="#onCreate" text="Create new account" />
       <Label fx:id="Title" layoutX="46.0" layoutY="14.0" prefHeight="59.0" prefWidth="400.0" text="Operation Schedular">
          <font>
             <Font size="35.0" />
