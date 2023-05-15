@@ -3,17 +3,13 @@
     -fx-align-content: center;
     -fx-padding: 5px;
 }
+
 .button{
     -fx-font: 12px "Roboto Light", "Sans Serif Collection";
     -fx-background-color: black;
     -fx-padding: 1px;
     -fx-background-radius: 15px;
 }
-#Username{
+.text-field{
     -fx-background-radius: 15px;
-
-}
-#Password{
-    -fx-background-radius: 15px;
-
 }
