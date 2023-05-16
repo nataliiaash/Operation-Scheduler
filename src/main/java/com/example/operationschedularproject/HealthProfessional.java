@@ -19,7 +19,7 @@ public class HealthProfessional extends Person implements Serializable{
 
 
     public void add(){
-
+//wrote saome code
     }
     public void delete(){
 
