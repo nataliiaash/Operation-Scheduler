@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class LogInController extends DataBase {
+public class LogInController extends Menu {
     @FXML
     private Label message;
     @FXML
@@ -64,9 +64,9 @@ public class LogInController extends DataBase {
         stage.show();
     }
     private boolean isLoginValid(String username, String password){
-        int size = getHealthProfessionalDB().size();
+        int size = dataBase.getHealthProfessionalDB().size();
         for(int i = 0; i < size ; i++){
-            HealthProfessional healthProfessional = getHealthProfessionalDB().get(i).value;
+            HealthProfessional healthProfessional = dataBase.getHealthProfessionalDB().get(i).value;
             if(healthProfessional.getUsername().equals(username) && healthProfessional.getPassword().equals(password)){
                 return true;
             }
