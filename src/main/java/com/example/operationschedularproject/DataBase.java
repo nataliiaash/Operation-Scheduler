@@ -7,15 +7,14 @@ import java.io.Serializable;
 
 public class DataBase implements Serializable {
     private LinkedList<HealthProfessional> healthProfessionalDB = new LinkedList<>();
-    private Saver saver = new Saver();
     public void add(HealthProfessional healthProfessional) throws IOException {
         healthProfessionalDB.addFirst(healthProfessional);
-        saver.save("Database.ser",this);
+        Saver.save("Database.ser", this.healthProfessionalDB);
     }
     public void delete(HealthProfessional healthProfessional) throws EmptyException, IOException {
         int index = healthProfessionalDB.find(healthProfessional);
         healthProfessionalDB.remove(index);
-        saver.save("Database.ser",this);
+        Saver.save("Database.ser",this.healthProfessionalDB);
     }
 
     public LinkedList<HealthProfessional> getHealthProfessionalDB() {
