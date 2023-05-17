@@ -1,10 +1,14 @@
 package com.example.operationschedularproject;
 
+import com.example.operationschedularproject.LinkedList.LinkedList;
+import java.util.Date;
 import java.io.Serializable;
 
 public class HealthProfessional extends Person implements Serializable{
     private String profession, location, username, password;
     private boolean isAvailable;
+    //added
+    private LinkedList<Appointment> appointments;
 
     public HealthProfessional(){
 
@@ -16,10 +20,9 @@ public class HealthProfessional extends Person implements Serializable{
         this.username = username;
         this.password = password;
     }
-
-
-    public void add(){
-//wrote saome code
+    //added
+    public void add(Appointment appointment){
+        this.appointments.addFirst(appointment);
     }
     public void delete(){
 

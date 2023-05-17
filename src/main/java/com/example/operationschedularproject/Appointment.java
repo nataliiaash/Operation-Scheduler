@@ -1,4 +1,6 @@
 package com.example.operationschedularproject;
+import com.example.operationschedularproject.LinkedList.LinkedList;
+
 import java.util.Date;
 
 public class Appointment {
@@ -8,14 +10,23 @@ public class Appointment {
     public Date end_time;
 
     private AppointmentType treatmentType;
-
-    private HealthProfessional[] listOfHealthProfessionalsInvolved;
+    //edited
+    private LinkedList<HealthProfessional> listOfHealthProfessionalsInvolved;
 
     public Appointment(){
 
     }
-    public void add(){
-
+    //added
+    public Appointment(Date date, Date start_time, Date end_time, AppointmentType treatmentType) {
+        this.date = date;
+        this.start_time = start_time;
+        this.end_time = end_time;
+        this.treatmentType = treatmentType;
+        this.listOfHealthProfessionalsInvolved = new LinkedList<>();
+    }
+    //added
+    public void add(HealthProfessional healthProfessional){
+          this.listOfHealthProfessionalsInvolved.addFirst(healthProfessional);
     }
     public void delete(){
 
@@ -23,6 +34,8 @@ public class Appointment {
     public void edit(){
 
     }
-
-
+    //added
+    public LinkedList<HealthProfessional> getListOfHealthProfessionalsInvolved() {
+        return listOfHealthProfessionalsInvolved;
+    }
 }
