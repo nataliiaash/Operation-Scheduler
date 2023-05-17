@@ -16,6 +16,7 @@ import java.io.IOException;
 public class Menu extends Application{
     public DataBase dataBase = new DataBase();
     public void start(Stage stage) throws Exception {
+        //comment
         dataBase.setHealthProfessionalDB(Saver.load("Database.ser")); //loading the database when user starts the app
         Parent root =  FXMLLoader.load(getClass().getResource("LogInScreen.fxml"));
         Scene scene = new Scene(root,400,500);
