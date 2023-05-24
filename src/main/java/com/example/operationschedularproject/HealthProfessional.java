@@ -19,7 +19,6 @@ public class HealthProfessional extends Person implements Serializable{
 
 
     public void add(){
-
     }
     public void delete(){
 
@@ -56,7 +55,7 @@ public class HealthProfessional extends Person implements Serializable{
     }
 
     public String getPassword() {
-        return password;
+        return this.password;
     }
 
     public void setPassword(String password) {

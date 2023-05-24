@@ -10,16 +10,13 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 
 
 public class Menu extends Application{
-    public DataBase dataBase = new DataBase();
+    public static DataBase dataBase = new DataBase();
     public void start(Stage stage) throws Exception {
-        //comment
-        //Kjoi changed something
-        //sanskarlia
-        dataBase.setHealthProfessionalDB(Saver.load("Database.ser")); //loading the database when user starts the app
         Parent root =  FXMLLoader.load(getClass().getResource("LogInScreen.fxml"));
         Scene scene = new Scene(root,400,500);
         String css = this.getClass().getResource("style.css").toExternalForm();

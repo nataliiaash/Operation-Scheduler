@@ -1,16 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.operationschedularproject.MainScreenController">
    <children>
-      <Label layoutX="59.0" layoutY="147.0" text="This Is Our Main Page">
+      <Label fx:id="name" layoutX="52.0" layoutY="30.0" prefHeight="20.0" prefWidth="109.0" text="Hi Lorem Ipsum">
          <font>
-            <Font size="53.0" />
+            <Font size="14.0" />
          </font>
       </Label>
+      <ImageView fx:id="profilePic" fitHeight="34.0" fitWidth="29.0" layoutX="19.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@profilePic.png" />
+         </image>
+      </ImageView>
+      <TableView fx:id="table" layoutY="180.0" prefHeight="221.0" prefWidth="600.0">
+        <columns>
+          <TableColumn fx:id="patientName" prefWidth="103.20001220703125" text="Patient Name" />
+          <TableColumn fx:id="date" prefWidth="128.0" text="Appointment Date" />
+            <TableColumn fx:id="type" prefWidth="170.4000244140625" text="Appointment Type" />
+            <TableColumn fx:id="startTime" prefWidth="96.0" text="Start Time" />
+            <TableColumn fx:id="endTime" prefWidth="100.0" text="End Time" />
+        </columns>
+      </TableView>
+      <Button fx:id="add" layoutX="22.0" layoutY="108.0" mnemonicParsing="false" prefHeight="5.0" prefWidth="125.0" text="Add Appointment" />
+      <Button fx:id="delete" layoutX="162.0" layoutY="108.0" mnemonicParsing="false" prefHeight="5.0" prefWidth="125.0" text="Delete Appointment" />
+      <Button fx:id="edit" layoutX="300.0" layoutY="108.0" mnemonicParsing="false" prefHeight="5.0" prefWidth="125.0" text="Edit Appointment" />
+      <Button fx:id="undo" layoutX="437.0" layoutY="108.0" mnemonicParsing="false" prefHeight="5.0" prefWidth="125.0" text="Undo Change" />
+      <Button fx:id="taskLists" layoutX="437.0" layoutY="18.0" mnemonicParsing="false" prefHeight="5.0" prefWidth="125.0" text="Go to Task Lists" />
    </children>
 </AnchorPane>
