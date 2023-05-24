@@ -10,10 +10,12 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 
 
 public class Menu extends Application{
+    public static DataBase dataBase = new DataBase();
     public void start(Stage stage) throws Exception {
         Parent root =  FXMLLoader.load(getClass().getResource("LogInScreen.fxml"));
         Scene scene = new Scene(root,400,500);

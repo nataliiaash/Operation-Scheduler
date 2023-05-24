@@ -24,6 +24,7 @@ public class HealthProfessional extends Person implements Serializable{
 
 
 
+
     public void bookMachine(){
 
     }
@@ -53,7 +54,7 @@ public class HealthProfessional extends Person implements Serializable{
     }
 
     public String getPassword() {
-        return password;
+        return this.password;
     }
 
     public void setPassword(String password) {

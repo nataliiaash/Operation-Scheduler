@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class CreateAccController extends DataBase {
+public class CreateAccController extends Menu {
     @FXML
     TextField fullName, address, position, username, password;
     @FXML
@@ -26,7 +26,7 @@ public class CreateAccController extends DataBase {
         String inName = fullName.getText();
         String inAddress = address.getText();
         String inPosition = position.getText();
-        String inUsername = position.getText();
+        String inUsername = username.getText();
         String inPass = password.getText();
         if(!isUsernameValid(inUsername)){
             message.setText("Username invalid!");
@@ -35,8 +35,8 @@ public class CreateAccController extends DataBase {
         } else {
             HealthProfessional newUser = new HealthProfessional(inName, inPosition, inUsername, inPass);
             newUser.setLocation(inAddress);
-            add(newUser);
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("MainScreen.fxml"));
+            dataBase.add(newUser);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("LogInScreen.fxml"));
             root = loader.load();
             stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
             scene = new Scene(root);
