@@ -1,10 +1,15 @@
 package com.example.operationschedularproject;
-
+import com.example.operationschedularproject.LinkedList.LinkedList;
+import com.example.operationschedularproject.LinkedList.EmptyException;
+import java.util.Date;
 import java.io.Serializable;
+import java.util.EmptyStackException;
 
 public class HealthProfessional extends Person implements Serializable{
     private String profession, location, username, password;
     private boolean isAvailable;
+
+    private Diary diary;
 
     public HealthProfessional(){
 
@@ -18,14 +23,8 @@ public class HealthProfessional extends Person implements Serializable{
     }
 
 
-    public void add(){
-    }
-    public void delete(){
 
-    }
-    public void edit(){
 
-    }
     public void bookMachine(){
 
     }
