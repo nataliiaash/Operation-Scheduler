@@ -23,7 +23,7 @@ public class LogInController extends Menu {
     Parent root;
     Scene scene;
     Stage stage;
-    HealthProfessional user;
+    static HealthProfessional user;
 
     @FXML
     public void onLogin(ActionEvent e) throws IOException {
@@ -70,10 +70,9 @@ public class LogInController extends Menu {
         }
         int size = Menu.dataBase.getHealthProfessionalDB().size();
         for(int i = 0; i < size ; i++){
-            HealthProfessional healthProfessional = Menu.dataBase.getHealthProfessionalDB().get(i).value;
-            if(healthProfessional.getUsername().equals(username) && healthProfessional.getPassword().equals(password)){
-                user = healthProfessional;
-                System.out.println(healthProfessional.getName());
+           user = Menu.dataBase.getHealthProfessionalDB().get(i).value;
+            if(user.getUsername().equals(username) && user.getPassword().equals(password)){
+                System.out.println(user.getName());
                 return true;
             }
         }
