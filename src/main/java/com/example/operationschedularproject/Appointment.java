@@ -1,16 +1,15 @@
 package com.example.operationschedularproject;
 import com.example.operationschedularproject.LinkedList.LinkedList;
 
-import java.time.LocalTime;
-import java.util.Date;
+import java.io.Serializable;
 
-public class Appointment {
+public class Appointment implements Serializable {
 
-    public Date date;
-    public LocalTime start_time;
-    public LocalTime end_time;
-
-    private AppointmentType treatmentType;
+    public String date;
+    public String patient;
+    public String startTime;
+    public String endTime;
+    private String treatmentType;
 
     private LinkedList<HealthProfessional> HealthProfessionalsInvolved;
 
@@ -18,54 +17,45 @@ public class Appointment {
 
     }
 
-    public Appointment(AppointmentType treatmentType, Date date, LocalTime start_time, LocalTime end_time) {
+    public Appointment(String patient, String treatmentType, String date, String start_time, String end_time) {
+        this.patient = patient;
         this.date = date;
         this.treatmentType = treatmentType;
-        this.start_time = start_time;
-        this.end_time = end_time;
+        this.startTime = start_time;
+        this.endTime = end_time;
         this.HealthProfessionalsInvolved = new LinkedList<>();
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
-    public LocalTime getStart_time() {
-        return start_time;
+    public String getStartTime() {
+        return startTime;
     }
 
-    public void setStart_time(LocalTime start_time) {
-        this.start_time = start_time;
+    public void setStartTime(String start_time) {
+        this.startTime = start_time;
     }
 
-    public LocalTime getEnd_time() {
-        return end_time;
+    public String getEndTime() {
+        return endTime;
     }
 
-    public void setEnd_time(LocalTime end_time) {
-        this.end_time = end_time;
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
     }
 
-    public AppointmentType getTreatmentType() {
+    public String getTreatmentType() {
         return treatmentType;
     }
 
-    public void setTreatmentType(AppointmentType treatmentType) {
+    public void setTreatmentType(String treatmentType) {
         this.treatmentType = treatmentType;
     }
-
-    public void add(){
-    }
-    public void delete(){
-
-    }
-    public void edit(){
-
-    }
-
 
 }
