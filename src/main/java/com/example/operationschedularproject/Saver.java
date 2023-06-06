@@ -25,7 +25,7 @@ public class Saver {
     }
 
     public static LinkedList load(String filepath)  {
-        LinkedList<HealthProfessional> output = new LinkedList<>();
+        LinkedList<HealthProfessional> output;
 
         try {
             FileInputStream fileInputStream = new FileInputStream(filepath);
