@@ -2,14 +2,16 @@ package com.example.operationschedularproject;
 import com.example.operationschedularproject.LinkedList.LinkedList;
 import com.example.operationschedularproject.LinkedList.EmptyException;
 import java.util.Date;
+import java.time.LocalTime;
 import java.io.Serializable;
 import java.util.EmptyStackException;
 
 public class HealthProfessional extends Person implements Serializable{
     private String profession, location, username, password;
     private boolean isAvailable;
-
+    private TaskList tasks;
     private Diary diary;
+
 
     public HealthProfessional(){
 
@@ -20,15 +22,12 @@ public class HealthProfessional extends Person implements Serializable{
         this.profession = profession;
         this.username = username;
         this.password = password;
+        this.tasks = new TaskList();
     }
-
-
-
 
     public void bookMachine(){
 
     }
-
     public String getProfession() {
         return profession;
     }
@@ -52,7 +51,6 @@ public class HealthProfessional extends Person implements Serializable{
     public void setUsername(String username) {
         this.username = username;
     }
-
     public String getPassword() {
         return this.password;
     }
@@ -68,4 +66,6 @@ public class HealthProfessional extends Person implements Serializable{
     public void setAvailable(boolean available) {
         isAvailable = available;
     }
+
+
 }

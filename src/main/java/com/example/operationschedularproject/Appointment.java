@@ -2,13 +2,13 @@ package com.example.operationschedularproject;
 import com.example.operationschedularproject.LinkedList.LinkedList;
 
 import java.time.LocalTime;
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Appointment {
 
-    public Date date;
-    public LocalTime start_time;
-    public LocalTime end_time;
+    private LocalDate date;
+    private LocalTime start_time;
+    private LocalTime end_time;
 
     private AppointmentType treatmentType;
 
@@ -18,7 +18,7 @@ public class Appointment {
 
     }
 
-    public Appointment(AppointmentType treatmentType, Date date, LocalTime start_time, LocalTime end_time) {
+    public Appointment(AppointmentType treatmentType, LocalDate date, LocalTime start_time, LocalTime end_time) {
         this.date = date;
         this.treatmentType = treatmentType;
         this.start_time = start_time;
@@ -26,11 +26,11 @@ public class Appointment {
         this.HealthProfessionalsInvolved = new LinkedList<>();
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
@@ -58,14 +58,14 @@ public class Appointment {
         this.treatmentType = treatmentType;
     }
 
-    public void add(){
+    @Override
+    public String toString() {
+        return "Appointment{" +
+                "date=" + date +
+                ", start_time=" + start_time +
+                ", end_time=" + end_time +
+                ", treatmentType=" + treatmentType +
+                ", HealthProfessionalsInvolved=" + HealthProfessionalsInvolved +
+                '}';
     }
-    public void delete(){
-
-    }
-    public void edit(){
-
-    }
-
-
 }
