@@ -11,13 +11,13 @@ public class Diary {
     public void add(AppointmentType type, LocalDate date, LocalTime start_time, LocalTime end_time){
         Appointment a = new Appointment(type, date, start_time, end_time );
         int i=0;
-        while (i<appointments.size()){
+        while (true){
             Appointment temp = appointments.get(i).value;
             if (temp.getDate().equals(date)){
                 if (!(temp.getStart_time().isAfter(start_time) && temp.getEnd_time().isAfter(end_time)
                         || temp.getStart_time().isBefore(start_time) && temp.getEnd_time().isBefore(end_time))){
                     System.out.println("Doctor is not available at this time");
-                    return;
+                    break;
                 }
             }
             i++;
