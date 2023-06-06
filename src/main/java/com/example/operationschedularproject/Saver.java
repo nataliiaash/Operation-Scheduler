@@ -1,36 +1,46 @@
 package com.example.operationschedularproject;
 
+
+import com.example.operationschedularproject.LinkedList.LinkedList;
+
 import java.io.*;
 
+
 public class Saver {
-    public void save(String filepath, Object object) throws IOException {
-        FileOutputStream fileOutputStream = new FileOutputStream(filepath);
-        ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
-        objectOutputStream.writeObject(object);
-        objectOutputStream.close();
-        fileOutputStream.close();
+    public static void save(String filepath, LinkedList object)  {
+
+        try {
+            FileOutputStream fileOutputStream  = new FileOutputStream(filepath);
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+            objectOutputStream.writeObject(object);
+            objectOutputStream.close();
+            fileOutputStream.close();
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+
     }
 
-    /** Usage
-     * User user = new User();
-     *         user = (User)saver.load("D:\\OperationSchedularProject\\Info.ser", user.getClass());
-     * @param filepath
-     * @param classType
-     * @return
-     * @param <T>
-     * @throws IOException
-     * @throws ClassNotFoundException
-     */
-    public <T> T load(String filepath, Class<T> classType) throws IOException, ClassNotFoundException {
-        try (FileInputStream fileInputStream = new FileInputStream(filepath);
-             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream)) {
-            Object object = objectInputStream.readObject();
+    public static LinkedList load(String filepath)  {
+        LinkedList<HealthProfessional> output;
 
-            if (classType.isInstance(object)) {
-                return classType.cast(object);
-            } else {
-                throw new IllegalArgumentException("The deserialized object is not of the specified class type.");
-            }
+        try {
+            FileInputStream fileInputStream = new FileInputStream(filepath);
+             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream); {
+            output = (LinkedList<HealthProfessional>) objectInputStream.readObject();
+                System.out.println("Object successfully loaded!");
         }
+    } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+      return output;
+
     }
 }

@@ -1,32 +1,64 @@
 package com.example.operationschedularproject;
 import com.example.operationschedularproject.LinkedList.LinkedList;
 
+import java.time.LocalTime;
 import java.util.Date;
 
 public class Appointment {
 
     public Date date;
-    public Date start_time;
-    public Date end_time;
+    public LocalTime start_time;
+    public LocalTime end_time;
 
     private AppointmentType treatmentType;
-    //edited
-    private LinkedList<HealthProfessional> listOfHealthProfessionalsInvolved;
+
+    private LinkedList<HealthProfessional> HealthProfessionalsInvolved;
 
     public Appointment(){
 
     }
-    //added
-    public Appointment(Date date, Date start_time, Date end_time, AppointmentType treatmentType) {
+
+    public Appointment(AppointmentType treatmentType, Date date, LocalTime start_time, LocalTime end_time) {
         this.date = date;
+        this.treatmentType = treatmentType;
         this.start_time = start_time;
         this.end_time = end_time;
-        this.treatmentType = treatmentType;
-        this.listOfHealthProfessionalsInvolved = new LinkedList<>();
+        this.HealthProfessionalsInvolved = new LinkedList<>();
     }
-    //added
-    public void add(HealthProfessional healthProfessional){
-          this.listOfHealthProfessionalsInvolved.addFirst(healthProfessional);
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public LocalTime getStart_time() {
+        return start_time;
+    }
+
+    public void setStart_time(LocalTime start_time) {
+        this.start_time = start_time;
+    }
+
+    public LocalTime getEnd_time() {
+        return end_time;
+    }
+
+    public void setEnd_time(LocalTime end_time) {
+        this.end_time = end_time;
+    }
+
+    public AppointmentType getTreatmentType() {
+        return treatmentType;
+    }
+
+    public void setTreatmentType(AppointmentType treatmentType) {
+        this.treatmentType = treatmentType;
+    }
+
+    public void add(){
     }
     public void delete(){
 
@@ -34,8 +66,6 @@ public class Appointment {
     public void edit(){
 
     }
-    //added
-    public LinkedList<HealthProfessional> getListOfHealthProfessionalsInvolved() {
-        return listOfHealthProfessionalsInvolved;
-    }
+
+
 }
