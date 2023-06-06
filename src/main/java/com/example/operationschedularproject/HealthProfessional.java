@@ -9,7 +9,7 @@ public class HealthProfessional extends Person implements Serializable{
     private String profession, location, username, password;
     private boolean isAvailable;
 
-    private Diary diary;
+    public Diary diary = new Diary();
 
     public HealthProfessional(){
 

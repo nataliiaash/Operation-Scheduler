@@ -66,6 +66,7 @@ public class LogInController extends Menu {
     }
     private boolean isLoginValid(String username, String password){
         if(username.equals("admin") && password.equals("admin")){
+            user = new HealthProfessional("admin","admin","admin","admin");
             return true;
         }
         int size = Menu.dataBase.getHealthProfessionalDB().size();

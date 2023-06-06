@@ -112,6 +112,9 @@ public class LinkedList<T> implements Serializable {
     public T getHeadData(){
         return this.head.value;
     }
+    public Node<T> getHead(){
+        return this.head;
+    }
     public void printList(){
         Node temp = head;
         while (temp != null){
