@@ -39,16 +39,7 @@ public class LogInController extends Menu {
             message.setText("Username or Password not correct");
         }
          else {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("MainScreen.fxml"));
-                root = loader.load();
-                stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-                scene = new Scene(root);
-//                String css = this.getClass().getResource("style.css").toExternalForm();
-//                scene.getStylesheets().add(css);
-                stage.setScene(scene);
-                stage.sizeToScene();
-                stage.show();
-
+             SceneLoader.loadScene("MainScreen.fxml", e);
         }
     }
 

@@ -10,6 +10,7 @@ public class HealthProfessional extends Person implements Serializable{
     private boolean isAvailable;
 
     public Diary diary = new Diary();
+    public TaskList taskList = new TaskList();
 
     public HealthProfessional(){
 

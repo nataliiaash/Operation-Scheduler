@@ -35,7 +35,7 @@
       <Button fx:id="delete" layoutX="162.0" layoutY="108.0" mnemonicParsing="false" onAction="#onDelete" prefHeight="5.0" prefWidth="125.0" text="Delete Appointment" />
       <Button fx:id="edit" layoutX="300.0" layoutY="108.0" mnemonicParsing="false" onAction="#onEdit" prefHeight="5.0" prefWidth="125.0" text="Edit Appointment" />
       <Button fx:id="undo" layoutX="437.0" layoutY="108.0" mnemonicParsing="false" onAction="#onUndo" prefHeight="5.0" prefWidth="125.0" text="Undo Change" />
-      <Button fx:id="taskLists" layoutX="437.0" layoutY="18.0" mnemonicParsing="false" prefHeight="5.0" prefWidth="125.0" text="Go to Task Lists" />
+      <Button fx:id="taskLists" layoutX="437.0" layoutY="18.0" mnemonicParsing="false" onAction="#onTaskList" prefHeight="5.0" prefWidth="125.0" text="Go to Task Lists" />
       <ButtonBar layoutX="378.0" layoutY="53.0" prefHeight="40.0" prefWidth="200.0">
         <buttons>
           <Button mnemonicParsing="false" text="Button" />
