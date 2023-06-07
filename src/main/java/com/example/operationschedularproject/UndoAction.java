@@ -2,18 +2,18 @@ package com.example.operationschedularproject;
 
 public class UndoAction {
     private final ActionType actionType;
-    private final Appointment appointment;
+    private final Object object;
 
-    public UndoAction(ActionType actionType, Appointment appointment) {
+    public UndoAction(ActionType actionType, Object object) {
         this.actionType = actionType;
-        this.appointment = appointment;
+        this.object = object;
     }
 
     public ActionType getActionType() {
         return actionType;
     }
 
-    public Appointment getAppointment() {
-        return appointment;
+    public Object getObject() {
+        return object;
     }
 }

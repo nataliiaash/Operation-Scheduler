@@ -33,6 +33,18 @@ public class LinkedList<T> implements Serializable {
         }
         throw new EmptyException("Not found");
     }
+    public boolean contains(T value)  {
+        Node temp = head;
+        int index = 0;
+        while (temp != null){
+            if(temp.value == value){
+                return true;
+            }
+            index++;
+            temp = temp.next;
+        }
+        return false;
+    }
 
     public void addFirst(T value){
         Node<T> node = new Node<>(value);
