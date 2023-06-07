@@ -1,9 +1,6 @@
 package com.example.operationschedularproject;
-import java.time.LocalTime;
 import com.example.operationschedularproject.LinkedList.EmptyException;
 import com.example.operationschedularproject.LinkedList.LinkedList;
-
-import java.util.Date;
 
 public class Diary {
     LinkedList<Appointment> appointments = new LinkedList<>();
@@ -19,10 +16,10 @@ public class Diary {
         }
 
     }
-    public void edit(Appointment appointment){
+    public void edit(Appointment newAppointment, Appointment prevAppointment){
         try {
-            appointments.remove(appointments.find(appointment));
-            appointments.addLast(appointment);
+            appointments.remove(appointments.find(prevAppointment));
+            appointments.addLast(newAppointment);
         }
         catch (EmptyException e){
             System.out.println(e.getMessage());
