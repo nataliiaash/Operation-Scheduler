@@ -1,6 +1,8 @@
 package com.example.operationschedularproject;
 
-public class Task {
+import java.io.Serializable;
+
+public class Task implements Serializable {
 
     private String description;
     private String priority;

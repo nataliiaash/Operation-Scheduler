@@ -11,12 +11,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.operationschedularproject.TaskListController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.operationschedularproject.MachineBookController">
    <children>
       <TableView fx:id="table" layoutX="222.0" layoutY="155.0" prefHeight="394.0" prefWidth="627.0">
         <columns>
-          <TableColumn fx:id="priorityColumn" prefWidth="149.59999084472656" text="Task Priority" />
-          <TableColumn fx:id="descriptionColumn" prefWidth="476.0" text="Description" />
+          <TableColumn fx:id="machineColumn" prefWidth="185.6000518798828" text="Machine" />
+          <TableColumn fx:id="dateColumn" prefWidth="163.20001220703125" text="Booked Date" />
+            <TableColumn fx:id="startTimeColumn" prefWidth="132.7999267578125" text="Start Time" />
+            <TableColumn fx:id="endTimeColumn" prefWidth="141.60009765625" text="End Time" />
         </columns>
       </TableView>
       <HBox layoutX="255.0" layoutY="113.0" prefHeight="29.0" prefWidth="498.0" spacing="15.0">
@@ -78,7 +80,7 @@
                </font></Button>
          </children>
       </HBox>
-      <Label layoutX="255.0" layoutY="33.0" text="Your Tasks">
+      <Label layoutX="255.0" layoutY="33.0" prefHeight="43.0" prefWidth="202.0" text="Your Bookings!">
          <font>
             <Font size="29.0" />
          </font>
@@ -103,9 +105,9 @@
                </children>
             </HBox>
             <ImageView fitHeight="52.0" fitWidth="223.0" pickOnBounds="true" preserveRatio="true" />
-            <Button fx:id="diary" alignment="BOTTOM_LEFT" graphicTextGap="10.0" maxHeight="46.0" maxWidth="226.0" minHeight="45.0" minWidth="69.0" mnemonicParsing="false" onAction="#onGoToDiary" prefHeight="46.0" prefWidth="69.0" style="-fx-background-color: alpha;" text="Diary" textFill="WHITE">
+            <Button fx:id="taskLists" alignment="BOTTOM_LEFT" graphicTextGap="10.0" maxHeight="46.0" maxWidth="226.0" minHeight="45.0" minWidth="69.0" mnemonicParsing="false" onAction="#onDiary" prefHeight="46.0" prefWidth="69.0" style="-fx-background-color: alpha;" text="Diary" textFill="WHITE">
                <graphic>
-                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@diary.png" />
                      </image>
@@ -115,11 +117,11 @@
                   <Font name="Calibri" size="14.0" />
                </font>
             </Button>
-            <Button fx:id="machineBooking" alignment="BOTTOM_LEFT" graphicTextGap="10.0" maxHeight="25.0" maxWidth="80.0" minHeight="45.0" minWidth="223.0" mnemonicParsing="false" onAction="#onMachineBooking" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: alpha;" text="Machine Booking" textFill="WHITE">
+            <Button fx:id="machineBooking" alignment="BOTTOM_LEFT" graphicTextGap="10.0" maxHeight="25.0" maxWidth="80.0" minHeight="45.0" minWidth="223.0" mnemonicParsing="false" onAction="#onTaskList" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: alpha;" text="Task List" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@BookingIcon.png" />
+                        <Image url="@task.png" />
                      </image>
                   </ImageView>
                </graphic>

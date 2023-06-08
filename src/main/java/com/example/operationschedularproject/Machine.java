@@ -1,6 +1,8 @@
 package com.example.operationschedularproject;
 
-public class Machine {
+import java.io.Serializable;
+
+public class Machine implements Serializable {
     private String name;
     private String date;
     private String startTime;

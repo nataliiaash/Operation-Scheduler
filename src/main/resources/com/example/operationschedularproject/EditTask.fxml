@@ -4,19 +4,71 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.operationschedularproject.EditTaskController">
+<FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.operationschedularproject.EditScreenController">
    <children>
       <AnchorPane prefHeight="399.0" prefWidth="602.0">
          <children>
-            <Button fx:id="editTask" layoutX="232.0" layoutY="322.0" mnemonicParsing="false" onAction="#onEditTask" prefHeight="44.0" prefWidth="135.0" text="Edit" textFill="WHITE" />
-            <Label layoutX="27.0" layoutY="64.0" text="Task Priority" />
             <Label fx:id="message" layoutX="202.0" layoutY="284.0" prefHeight="18.0" prefWidth="195.0" textFill="RED" />
-            <ChoiceBox fx:id="choiceBox" layoutX="101.0" layoutY="60.0" prefWidth="150.0" />
-            <TextArea fx:id="description" layoutX="102.0" layoutY="100.0" prefHeight="200.0" prefWidth="487.0" />
-            <Label layoutX="29.0" layoutY="98.0" prefHeight="18.0" prefWidth="74.0" text="Description" />
+            <VBox layoutX="217.0" layoutY="-1.0" prefHeight="406.0" prefWidth="378.0">
+               <children>
+                  <ImageView fitHeight="18.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label text="Task Priority">
+                     <font>
+                        <Font name="Calibri" size="14.0" />
+                     </font>
+                  </Label>
+                  <ChoiceBox fx:id="choiceBox" prefWidth="150.0" />
+                  <ImageView fitHeight="18.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label prefHeight="18.0" prefWidth="74.0" text="Description">
+                     <font>
+                        <Font name="Calibri" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextArea fx:id="description" prefHeight="320.0" prefWidth="292.0" />
+                  <ImageView fitHeight="18.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="18.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                  <Pane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="114.0" layoutY="8.0" mnemonicParsing="false" onAction="#onEditTask" prefHeight="45.0" prefWidth="115.0" style="-fx-background-color: #6F4CBB; -fx-background-radius: 10;" text="EDIT" textFill="WHITE">
+                           <font>
+                              <Font name="Calibri Bold" size="20.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </Pane>
+               </children>
+            </VBox>
+            <Pane fx:id="sidePane" layoutY="-6.0" prefHeight="406.0" prefWidth="209.0" style="-fx-background-color: linear-gradient(to bottom left, #6F4CBB, #431FA0);">
+               <children>
+                  <Button layoutY="14.0" mnemonicParsing="false" onAction="#onEditTaskBack" prefWidth="26.0" style="-fx-background-radius: 5em; -fx-border-radius: 5em; -fx-background-color: alpha;">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@back.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="21.0" layoutY="4.0" prefHeight="44.0" prefWidth="152.0" text="Edit Task" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri Bold" size="17.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Label layoutX="322.0" layoutY="176.0" prefHeight="44.0" prefWidth="152.0" text="New Appointment" textFill="WHITE">
+               <font>
+                  <Font name="Calibri Bold" size="17.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>

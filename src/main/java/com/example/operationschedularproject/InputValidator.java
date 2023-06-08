@@ -20,5 +20,16 @@ public class InputValidator {
         }
         return true;
     }
+    public static boolean isAddMachineValid(HealthProfessional healthProfessional, Machine machine) {
+        for (int i = 0; i < healthProfessional.machineBooker.getMachineLinkedList().size(); i++) {
+            Machine machine1 = healthProfessional.machineBooker.getMachineLinkedList().get(i).value;
+            if (machine1.getDate().equals(machine.getDate())) {
+                if (machine1.getStartTime().equals(machine.getStartTime()) || machine1.getEndTime().equals(machine.getEndTime())) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 }
 

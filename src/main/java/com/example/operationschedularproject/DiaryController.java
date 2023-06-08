@@ -1,6 +1,8 @@
 package com.example.operationschedularproject;
 
+import com.example.operationschedularproject.LinkedList.EmptyException;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -32,35 +34,40 @@ public class DiaryController {
     public static Stack<UndoAction> redoStack = new Stack<>();
     public static Stack<Appointment> redoEditStack = new Stack<>();
 
-   public void onAdd(ActionEvent e) throws IOException {
+   public void onAdd(ActionEvent e) throws IOException, EmptyException {
+       Menu.dataBase.delete(currentUser);
        SceneLoader.loadScene("AddAppointment.fxml", e);
    }
 
-    public void onDelete(ActionEvent e){
+    public void onDelete(ActionEvent e) throws EmptyException, IOException {
         selectedAppointment = table.getSelectionModel().getSelectedItem();
         if (selectedAppointment != null) {
             currentUser.diary.delete(selectedAppointment);
+            Menu.dataBase.delete(currentUser);
             appointmentObservableList.remove(selectedAppointment);
             table.getItems().remove(selectedAppointment);
             undoStack.push(new UndoAction(ActionType.DELETE,selectedAppointment));
+            Menu.dataBase.add(currentUser);
         } else {
             AlertDisplay.showAlert(Alert.AlertType.ERROR, "Error", "No appointment selected.");
         }
     }
-    public void onEdit(ActionEvent e) throws IOException {
+    public void onEdit(ActionEvent e) throws IOException, EmptyException {
        selectedAppointment = table.getSelectionModel().getSelectedItem();
        editStack.push(selectedAppointment);
         if (selectedAppointment != null){
+            Menu.dataBase.delete(currentUser);
            SceneLoader.loadScene("EditAppointment.fxml", e);
         } else {
             AlertDisplay.showAlert(Alert.AlertType.ERROR, "Error", "No appointment selected.");
         }
     }
-    public void onUndo(ActionEvent e){
+    public void onUndo(ActionEvent e) throws IOException, EmptyException {
       if(undoStack.isEmpty()){
           AlertDisplay.showAlert(Alert.AlertType.ERROR, "Error", "Nothing to undo");
           return;
       }
+        Menu.dataBase.delete(currentUser);
         UndoAction undoAction = undoStack.pop();
         ActionType actionType = undoAction.getActionType();
         Appointment appointment = (Appointment) undoAction.getObject();
@@ -94,13 +101,15 @@ public class DiaryController {
                 }
                 break;
         }
+        Menu.dataBase.add(currentUser);
         table.setItems(appointmentObservableList);
     }
-    public void onRedo(ActionEvent e){
+    public void onRedo(ActionEvent e) throws EmptyException, IOException {
         if(redoStack.isEmpty()){
             AlertDisplay.showAlert(Alert.AlertType.ERROR, "Error", "Nothing to redo");
             return;
         }
+        Menu.dataBase.delete(currentUser);
         UndoAction redoAction = redoStack.pop();
         ActionType actionType = redoAction.getActionType();
         Appointment appointment = (Appointment) redoAction.getObject();
@@ -130,14 +139,23 @@ public class DiaryController {
                 }
                 break;
         }
+        Menu.dataBase.add(currentUser);
         table.setItems(appointmentObservableList);
     }
     public void onTaskList(ActionEvent e) throws IOException {
        SceneLoader.loadScene("TaskList.fxml",e);
     }
+    public void onMachineBookings(ActionEvent e) throws IOException {
+        SceneLoader.loadScene("MachineBooking.fxml",e);
+    }
     @FXML
     public void initialize() {
-
+       if(currentUser.diary.appointments != null){
+           appointmentObservableList = FXCollections.observableArrayList();
+           for (int i = 0; i < currentUser.diary.appointments.size(); i++){
+               appointmentObservableList.add(currentUser.diary.appointments.get(i).value);
+           }
+       }
        try {
            patientNameColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().patient));
            typeColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getTreatmentType()));

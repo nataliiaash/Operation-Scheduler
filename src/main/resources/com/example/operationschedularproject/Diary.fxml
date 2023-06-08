@@ -81,12 +81,12 @@
                </font></Button>
          </children>
       </HBox>
-      <Label layoutX="255.0" layoutY="33.0" text="Appointments">
+      <Label layoutX="255.0" layoutY="33.0" text="Your Appointments">
          <font>
             <Font size="29.0" />
          </font>
       </Label>
-      <VBox layoutX="-2.0" prefHeight="550.0" prefWidth="223.0" style="-fx-background-color: #2F4F4F;">
+      <VBox layoutX="-2.0" prefHeight="550.0" prefWidth="223.0" style="-fx-background-color: linear-gradient(to bottom left, #6F4CBB, #431FA0);">
          <children>
             <ImageView fitHeight="52.0" fitWidth="223.0" pickOnBounds="true" preserveRatio="true" />
             <HBox prefHeight="43.0" prefWidth="238.0">
@@ -106,7 +106,7 @@
                </children>
             </HBox>
             <ImageView fitHeight="52.0" fitWidth="223.0" pickOnBounds="true" preserveRatio="true" />
-            <Button fx:id="taskLists" alignment="BOTTOM_LEFT" graphicTextGap="10.0" maxHeight="46.0" maxWidth="226.0" minHeight="45.0" minWidth="69.0" mnemonicParsing="false" onAction="#onTaskList" prefHeight="46.0" prefWidth="69.0" style="-fx-background-color: #2F4F4F;" text="Task List" textFill="WHITE">
+            <Button fx:id="taskLists" alignment="BOTTOM_LEFT" graphicTextGap="10.0" maxHeight="46.0" maxWidth="226.0" minHeight="45.0" minWidth="69.0" mnemonicParsing="false" onAction="#onTaskList" prefHeight="46.0" prefWidth="69.0" style="-fx-background-color: alpha;" text="Task List" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -118,7 +118,7 @@
                   <Font name="Calibri" size="14.0" />
                </font>
             </Button>
-            <Button fx:id="machineBooking" alignment="BOTTOM_LEFT" graphicTextGap="10.0" maxHeight="25.0" maxWidth="80.0" minHeight="45.0" minWidth="223.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #2F4F4F;" text="Machine Booking" textFill="WHITE">
+            <Button fx:id="machineBooking" alignment="BOTTOM_LEFT" graphicTextGap="10.0" maxHeight="25.0" maxWidth="80.0" minHeight="45.0" minWidth="223.0" mnemonicParsing="false" onAction="#onMachineBookings" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: alpha;" text="Machine Booking" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>

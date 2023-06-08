@@ -11,6 +11,7 @@ public class HealthProfessional extends Person implements Serializable{
 
     public Diary diary = new Diary();
     public TaskList taskList = new TaskList();
+    public MachineBooker machineBooker = new MachineBooker();
 
     public HealthProfessional(){
 
