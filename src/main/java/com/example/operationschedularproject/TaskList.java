@@ -3,7 +3,9 @@ package com.example.operationschedularproject;
 import com.example.operationschedularproject.LinkedList.EmptyException;
 import com.example.operationschedularproject.LinkedList.LinkedList;
 
-public class TaskList {
+import java.io.Serializable;
+
+public class TaskList implements Serializable {
 
     LinkedList<Task> taskLinkedList = new LinkedList<>();
 

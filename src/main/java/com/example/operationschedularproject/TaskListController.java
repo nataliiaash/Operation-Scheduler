@@ -1,6 +1,8 @@
 package com.example.operationschedularproject;
 
+import com.example.operationschedularproject.LinkedList.EmptyException;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -26,35 +28,40 @@ public class TaskListController{
     public static Stack<UndoAction> redoStack = new Stack<>();
     public static Stack<Task> redoEditStack = new Stack<>();
 
-    public void onAdd(ActionEvent e) throws IOException {
+    public void onAdd(ActionEvent e) throws IOException, EmptyException {
+        Menu.dataBase.delete(currentUser);
         SceneLoader.loadScene("AddTask.fxml", e);
     }
 
-    public void onDelete(ActionEvent e){
+    public void onDelete(ActionEvent e) throws EmptyException, IOException {
         selectedTask = table.getSelectionModel().getSelectedItem();
         if (selectedTask != null) {
+            Menu.dataBase.delete(currentUser);
             currentUser.taskList.delete(selectedTask);
             taskObservableList.remove(selectedTask);
             table.getItems().remove(selectedTask);
             undoStack.push(new UndoAction(ActionType.DELETE, selectedTask));
+            Menu.dataBase.add(currentUser);
         } else {
             AlertDisplay.showAlert(Alert.AlertType.ERROR, "Error", "No appointment selected.");
         }
     }
-    public void onEdit(ActionEvent e) throws IOException {
+    public void onEdit(ActionEvent e) throws Exception {
         selectedTask = table.getSelectionModel().getSelectedItem();
         editStack.push(selectedTask);
         if (selectedTask != null){
+            Menu.dataBase.delete(currentUser);
             SceneLoader.loadScene("EditTask.fxml", e);
         } else {
             AlertDisplay.showAlert(Alert.AlertType.ERROR, "Error", "No appointment selected.");
         }
     }
-    public void onUndo(ActionEvent e){
+    public void onUndo(ActionEvent e) throws EmptyException, IOException {
         if(undoStack.isEmpty()){
             AlertDisplay.showAlert(Alert.AlertType.ERROR, "Error", "Nothing to undo");
             return;
         }
+        Menu.dataBase.delete(currentUser);
         UndoAction undoAction = undoStack.pop();
         ActionType actionType = undoAction.getActionType();
         Task task = (Task)undoAction.getObject();
@@ -88,13 +95,15 @@ public class TaskListController{
                 }
                 break;
         }
+        Menu.dataBase.add(currentUser);
         table.setItems(taskObservableList);
     }
-    public void onRedo(ActionEvent e){
+    public void onRedo(ActionEvent e) throws EmptyException, IOException {
         if(redoStack.isEmpty()){
             AlertDisplay.showAlert(Alert.AlertType.ERROR, "Error", "Nothing to redo");
             return;
         }
+        Menu.dataBase.delete(currentUser);
         UndoAction redoAction = redoStack.pop();
         ActionType actionType = redoAction.getActionType();
         Task task = (Task) redoAction.getObject();
@@ -124,13 +133,23 @@ public class TaskListController{
                 }
                 break;
         }
+        Menu.dataBase.add(currentUser);
         table.setItems(taskObservableList);
     }
     public void onGoToDiary(ActionEvent e) throws IOException {
         SceneLoader.loadScene("Diary.fxml", e);
     }
+    public void onMachineBooking(ActionEvent e) throws IOException {
+        SceneLoader.loadScene("MachineBooking.fxml", e);
+    }
     @FXML
     public void initialize() {
+        if(currentUser.diary.appointments != null){
+            taskObservableList = FXCollections.observableArrayList();
+            for (int i = 0; i < currentUser.taskList.taskLinkedList.size(); i++){
+                taskObservableList.add(currentUser.taskList.taskLinkedList.get(i).value);
+            }
+        }
         try {
             priorityColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getPriority().toString()));
             descriptionColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDescription()));

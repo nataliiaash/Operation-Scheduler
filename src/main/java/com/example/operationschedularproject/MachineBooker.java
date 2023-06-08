@@ -3,7 +3,9 @@ package com.example.operationschedularproject;
 import com.example.operationschedularproject.LinkedList.EmptyException;
 import com.example.operationschedularproject.LinkedList.LinkedList;
 
-public class MachineBooker {
+import java.io.Serializable;
+
+public class MachineBooker implements Serializable {
     private LinkedList<Machine> machineLinkedList = new LinkedList<>();
     public void add(Machine machine){
         machineLinkedList.addLast(machine);

@@ -39,6 +39,7 @@ public class LogInController extends Menu {
             message.setText("Username or Password not correct");
         }
          else {
+            System.out.println(user.diary.appointments.size());
              SceneLoader.loadScene("Diary.fxml", e);
         }
     }
@@ -64,7 +65,6 @@ public class LogInController extends Menu {
         for(int i = 0; i < size ; i++){
            user = Menu.dataBase.getHealthProfessionalDB().get(i).value;
             if(user.getUsername().equals(username) && user.getPassword().equals(password)){
-                System.out.println(user.getName());
                 return true;
             }
         }

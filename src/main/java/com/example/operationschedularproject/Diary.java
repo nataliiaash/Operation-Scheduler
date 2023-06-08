@@ -2,7 +2,9 @@ package com.example.operationschedularproject;
 import com.example.operationschedularproject.LinkedList.EmptyException;
 import com.example.operationschedularproject.LinkedList.LinkedList;
 
-public class Diary {
+import java.io.Serializable;
+
+public class Diary implements Serializable {
     LinkedList<Appointment> appointments = new LinkedList<>();
     public void add(Appointment appointment){
         appointments.addLast(appointment);

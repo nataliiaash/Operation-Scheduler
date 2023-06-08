@@ -13,53 +13,45 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.operationschedularproject.AddScreenController">
+<FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.operationschedularproject.EditScreenController">
    <children>
-      <AnchorPane prefHeight="399.0" prefWidth="602.0" style="-fx-background-color: #FFFFFF;">
+      <AnchorPane prefHeight="399.0" prefWidth="602.0">
          <children>
-            <Label fx:id="message" layoutX="202.0" layoutY="284.0" prefHeight="18.0" prefWidth="195.0" textFill="RED" />
-            <VBox alignment="BOTTOM_LEFT" layoutX="302.0" layoutY="6.0" prefHeight="399.0" prefWidth="219.0">
+            <VBox layoutX="302.0" layoutY="6.0" prefHeight="399.0" prefWidth="219.0">
                <children>
                   <ImageView fitHeight="18.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-                  <Label text="Patient Name">
-                     <font>
-                        <Font name="Calibri" size="14.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="patientNameField" prefHeight="26.0" prefWidth="226.0" />
                   <ImageView fitHeight="18.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-                  <Label prefHeight="20.0" prefWidth="122.0" style="-fx-font: calibri;" text="Appointment Date">
+                  <Label prefHeight="18.0" prefWidth="50.0" text="Machine">
                      <font>
                         <Font name="Calibri" size="14.0" />
                      </font>
                   </Label>
-                  <DatePicker fx:id="dateField" prefHeight="26.0" prefWidth="237.0" />
+                  <ChoiceBox fx:id="machineChoiceBox" prefHeight="26.0" prefWidth="175.0" />
                   <ImageView fitHeight="18.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-                  <Label text="Appointment Type">
+                  <Label prefHeight="18.0" prefWidth="74.0" text="Date">
                      <font>
                         <Font name="Calibri" size="14.0" />
                      </font>
                   </Label>
-                  <ChoiceBox fx:id="appointmentTypeField" prefHeight="26.0" prefWidth="237.0" />
-                  <ImageView fitHeight="18.0" fitWidth="229.0" pickOnBounds="true" preserveRatio="true" />
-                  <Label text="Start Time">
-                     <font>
-                        <Font name="Calibri" size="14.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="startField" prefHeight="26.0" prefWidth="237.0" />
+                  <DatePicker fx:id="dateField" />
                   <ImageView fitHeight="18.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-                  <Label text="End Time">
+                  <Label prefHeight="18.0" prefWidth="59.0" text="Start Time">
                      <font>
                         <Font name="Calibri" size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="endField" />
+                  <TextField fx:id="startField" prefHeight="26.0" prefWidth="175.0" />
                   <ImageView fitHeight="18.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-                  <ImageView fitHeight="9.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label prefHeight="18.0" prefWidth="59.0" text="End Time">
+                     <font>
+                        <Font name="Calibri" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="endField" prefHeight="26.0" prefWidth="175.0" />
+                  <Label fx:id="message" prefHeight="18.0" prefWidth="195.0" textFill="RED" />
                   <Pane prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <Button fx:id="addAppointment" alignment="CENTER" contentDisplay="CENTER" layoutX="61.0" layoutY="8.0" mnemonicParsing="false" onAction="#onAddAppointment" prefHeight="45.0" prefWidth="115.0" style="-fx-background-radius: 10; -fx-background-color: #6F4CBB;" text="ADD" textFill="WHITE">
+                        <Button fx:id="add" layoutX="61.0" layoutY="53.0" mnemonicParsing="false" onAction="#onEditMachine" prefHeight="45.0" prefWidth="115.0" style="-fx-background-color: #6F4CBB; -fx-background-radius: 10;" text="EDIT" textFill="WHITE">
                            <font>
                               <Font name="Calibri Bold" size="20.0" />
                            </font>
@@ -70,7 +62,7 @@
             </VBox>
             <Pane fx:id="sidePane" layoutY="-1.0" prefHeight="410.0" prefWidth="274.0" style="-fx-background-color: linear-gradient(to bottom left, #6F4CBB, #431FA0);">
                <children>
-                  <Button layoutX="4.0" layoutY="4.0" mnemonicParsing="false" onAction="#onAddAppointmentBack" prefWidth="26.0" style="-fx-background-radius: 5em; -fx-border-radius: 5em; -fx-background-color: alpha;">
+                  <Button layoutX="4.0" layoutY="4.0" mnemonicParsing="false" onAction="#onEditMachineBack" prefWidth="26.0" style="-fx-background-radius: 5em; -fx-border-radius: 5em; -fx-background-color: alpha;">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -79,28 +71,28 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Label layoutX="61.0" layoutY="-4.0" prefHeight="44.0" prefWidth="152.0" text="New Appointment" textFill="WHITE">
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="58.0" layoutY="-4.0" prefHeight="44.0" prefWidth="152.0" text="Edit Booking" textFill="WHITE">
                      <font>
                         <Font name="Calibri Bold" size="17.0" />
                      </font>
                   </Label>
-                  <Label layoutX="119.0" layoutY="94.0" prefHeight="44.0" prefWidth="152.0" text="Date format : DD/MM/YYYY" textFill="WHITE">
+                  <Label layoutX="119.0" layoutY="112.0" prefHeight="44.0" prefWidth="152.0" text="Date format : DD/MM/YYYY" textFill="WHITE">
                      <font>
                         <Font name="Calibri" size="13.0" />
                      </font>
                   </Label>
-                  <Label layoutX="145.0" layoutY="216.0" prefHeight="44.0" prefWidth="129.0" text="Time format : 24 hours" textFill="WHITE">
+                  <Label layoutX="145.0" layoutY="172.0" prefHeight="44.0" prefWidth="129.0" text="Time format : 24 hours" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="112.0" layoutY="185.0" prefHeight="58.0" prefWidth="171.0" text="Examples: 00:00, 12:45,14:30" textFill="WHITE">
                      <font>
                         <Font name="Calibri" size="13.0" />
                      </font>
                   </Label>
                </children>
             </Pane>
-            <Label layoutX="116.0" layoutY="237.0" prefHeight="58.0" prefWidth="171.0" text="Examples: 00:00, 12:45,14:30" textFill="WHITE">
-               <font>
-                  <Font name="Calibri" size="13.0" />
-               </font>
-            </Label>
          </children>
       </AnchorPane>
    </children>

@@ -16,7 +16,9 @@ public class DataBase implements Serializable {
         healthProfessionalDB.remove(index);
         Saver.save("Database.ser",this.healthProfessionalDB);
     }
-
+    public void save(){
+        Saver.save("Database.ser",this.healthProfessionalDB);
+    }
     public LinkedList<HealthProfessional> getHealthProfessionalDB() {
         return healthProfessionalDB;
     }
