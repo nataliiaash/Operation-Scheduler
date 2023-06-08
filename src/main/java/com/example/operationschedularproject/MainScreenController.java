@@ -29,6 +29,8 @@ public class MainScreenController {
     public static Appointment selectedAppointment;
     public static Stack<UndoAction> undoStack = new Stack<>();
     public static Stack<Appointment> editStack = new Stack<>();
+    public static Stack<UndoAction> redoStack = new Stack<>();
+    public static Stack<Appointment> redoEditStack = new Stack<>();
 
    public void onAdd(ActionEvent e) throws IOException {
        SceneLoader.loadScene("AddAppointment.fxml", e);
@@ -67,6 +69,7 @@ public class MainScreenController {
             case ADD:
                 // Undo the add operation
                 if (appointment != null) {
+                    redoStack.push(new UndoAction(ActionType.ADD, appointment));
                     currentUser.diary.delete(appointment);
                     appointmentObservableList.remove(appointment);
                 }
@@ -74,6 +77,7 @@ public class MainScreenController {
             case DELETE:
                 // Undo the delete operation
                 if (appointment != null) {
+                    redoStack.push(new UndoAction(ActionType.DELETE, appointment));
                     currentUser.diary.add(appointment);
                     appointmentObservableList.add(appointment);
                 }
@@ -82,6 +86,44 @@ public class MainScreenController {
                 // Undo the edit operation
                 if (appointment != null) {
                     Appointment prevAppointment = editStack.pop();
+                    redoEditStack.push(appointment);
+                    redoStack.push(new UndoAction(ActionType.EDIT, prevAppointment));
+                    currentUser.diary.edit(prevAppointment, appointment);
+                    appointmentObservableList.remove(appointment);
+                    appointmentObservableList.add(prevAppointment);
+                }
+                break;
+        }
+        table.setItems(appointmentObservableList);
+    }
+    public void onRedo(ActionEvent e){
+        if(redoStack.isEmpty()){
+            AlertDisplay.showAlert(Alert.AlertType.ERROR, "Error", "Nothing to redo");
+            return;
+        }
+        UndoAction redoAction = redoStack.pop();
+        ActionType actionType = redoAction.getActionType();
+        Appointment appointment = (Appointment) redoAction.getObject();
+
+        switch (actionType) {
+            case ADD:
+                // Undo the add operation
+                if (appointment != null) {
+                    currentUser.diary.add(appointment);
+                    appointmentObservableList.add(appointment);
+                }
+                break;
+            case DELETE:
+                // Undo the delete operation
+                if (appointment != null) {
+                    currentUser.diary.delete(appointment);
+                    appointmentObservableList.remove(appointment);
+                }
+                break;
+            case EDIT:
+                // Undo the edit operation
+                if (appointment != null) {
+                    Appointment prevAppointment = redoEditStack.pop();
                     currentUser.diary.edit(prevAppointment, appointment);
                     appointmentObservableList.remove(appointment);
                     appointmentObservableList.add(prevAppointment);
