@@ -21,6 +21,7 @@ public class SceneLoader {
 //                String css = this.getClass().getResource("style.css").toExternalForm();
 //                scene.getStylesheets().add(css);
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.sizeToScene();
         stage.show();
     }
