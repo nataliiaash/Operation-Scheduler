@@ -23,6 +23,8 @@ public class TaskListController{
     public static Task selectedTask;
     public static Stack<UndoAction> undoStack = new Stack<>();
     public static Stack<Task> editStack = new Stack<>();
+    public static Stack<UndoAction> redoStack = new Stack<>();
+    public static Stack<Task> redoEditStack = new Stack<>();
 
     public void onAdd(ActionEvent e) throws IOException {
         SceneLoader.loadScene("AddTask.fxml", e);
@@ -61,6 +63,7 @@ public class TaskListController{
             case ADD:
                 // Undo the add operation
                 if (task != null) {
+                    redoStack.push(new UndoAction(ActionType.ADD, task));
                     currentUser.taskList.delete(task);
                     taskObservableList.remove(task);
                 }
@@ -68,6 +71,7 @@ public class TaskListController{
             case DELETE:
                 // Undo the delete operation
                 if (task != null) {
+                    redoStack.push(new UndoAction(ActionType.DELETE, task));
                     currentUser.taskList.add(task);
                     taskObservableList.add(task);
                 }
@@ -76,6 +80,44 @@ public class TaskListController{
                 // Undo the edit operation
                 if (task != null) {
                     Task prevTask = editStack.pop();
+                    redoEditStack.push(task);
+                    redoStack.push(new UndoAction(ActionType.EDIT, prevTask));
+                    currentUser.taskList.edit(prevTask, task);
+                    taskObservableList.remove(task);
+                    taskObservableList.add(prevTask);
+                }
+                break;
+        }
+        table.setItems(taskObservableList);
+    }
+    public void onRedo(ActionEvent e){
+        if(redoStack.isEmpty()){
+            AlertDisplay.showAlert(Alert.AlertType.ERROR, "Error", "Nothing to redo");
+            return;
+        }
+        UndoAction redoAction = redoStack.pop();
+        ActionType actionType = redoAction.getActionType();
+        Task task = (Task) redoAction.getObject();
+
+        switch (actionType) {
+            case ADD:
+                // Undo the add operation
+                if (task != null) {
+                    currentUser.taskList.add(task);
+                    taskObservableList.add(task);
+                }
+                break;
+            case DELETE:
+                // Undo the delete operation
+                if (task != null) {
+                    currentUser.taskList.delete(task);
+                    taskObservableList.remove(task);
+                }
+                break;
+            case EDIT:
+                // Undo the edit operation
+                if (task != null) {
+                    Task prevTask = redoEditStack.pop();
                     currentUser.taskList.edit(prevTask, task);
                     taskObservableList.remove(task);
                     taskObservableList.add(prevTask);

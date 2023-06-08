@@ -38,7 +38,7 @@
       <Button fx:id="taskLists" layoutX="437.0" layoutY="18.0" mnemonicParsing="false" onAction="#onTaskList" prefHeight="5.0" prefWidth="125.0" text="Go to Task Lists" />
       <ButtonBar layoutX="378.0" layoutY="53.0" prefHeight="40.0" prefWidth="200.0">
         <buttons>
-          <Button mnemonicParsing="false" text="Button" />
+          <Button mnemonicParsing="false" onAction="#onRedo" text="Button" />
         </buttons>
       </ButtonBar>
    </children>
