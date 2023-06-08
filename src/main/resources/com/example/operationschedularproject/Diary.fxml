@@ -8,43 +8,129 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.operationschedularproject.DiaryController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.operationschedularproject.DiaryController">
    <children>
-      <Label fx:id="name" layoutX="40.0" layoutY="45.0" prefHeight="20.0" prefWidth="152.0" text="Hi, Lorem Ipsum">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <ImageView fx:id="profilePic" fitHeight="34.0" fitWidth="29.0" layoutX="7.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@profilePic.png" />
-         </image>
-      </ImageView>
-      <TableView fx:id="table" layoutY="132.0" prefHeight="270.0" prefWidth="600.0">
+      <TableView fx:id="table" layoutX="222.0" layoutY="155.0" prefHeight="394.0" prefWidth="627.0">
         <columns>
           <TableColumn fx:id="patientNameColumn" prefWidth="103.20001220703125" text="Patient Name" />
           <TableColumn fx:id="dateColumn" prefWidth="128.0" text="Appointment Date" />
             <TableColumn fx:id="typeColumn" prefWidth="170.4000244140625" text="Appointment Type" />
             <TableColumn fx:id="startTimeColumn" prefWidth="96.0" text="Start Time" />
-            <TableColumn fx:id="endTimeColumn" prefWidth="100.0" text="End Time" />
+            <TableColumn fx:id="endTimeColumn" prefWidth="127.1999389648438" text="End Time" />
         </columns>
       </TableView>
-      <Button fx:id="taskLists" layoutX="509.0" layoutY="49.0" maxHeight="25.0" maxWidth="80.0" minHeight="25.0" minWidth="80.0" mnemonicParsing="false" onAction="#onTaskList" prefHeight="25.0" prefWidth="80.0" text="Task List" />
-      <HBox layoutX="14.0" layoutY="95.0" prefHeight="29.0" prefWidth="498.0" spacing="15.0">
+      <HBox layoutX="255.0" layoutY="113.0" prefHeight="29.0" prefWidth="498.0" spacing="15.0">
          <children>
-            <Button fx:id="add" mnemonicParsing="false" onAction="#onAdd" prefHeight="25.0" prefWidth="80.0" text="ADD" />
-            <Button fx:id="delete" mnemonicParsing="false" onAction="#onDelete" prefHeight="25.0" prefWidth="80.0" text="DELETE" />
-            <Button fx:id="edit" mnemonicParsing="false" onAction="#onEdit" prefHeight="25.0" prefWidth="80.0" text="EDIT" />
-            <Button fx:id="undo" mnemonicParsing="false" onAction="#onUndo" prefHeight="25.0" prefWidth="80.0" text="UNDO" />
-          <Button mnemonicParsing="false" onAction="#onRedo" prefWidth="80.0" text="REDO" />
+            <Button fx:id="add" maxHeight="40.0" minHeight="0.0" minWidth="100.0" mnemonicParsing="false" onAction="#onAdd" prefHeight="30.0" prefWidth="0.0" style="-fx-background-color: #50C878; -fx-background-radius: 11; -fx-background-size: 0; -fx-border-radius: 0;" text="ADD" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@add.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
+            <Button fx:id="delete" maxHeight="40.0" minHeight="0.0" minWidth="100.0" mnemonicParsing="false" onAction="#onDelete" prefHeight="30.0" prefWidth="0.0" style="-fx-background-color: #EE4B2B; -fx-background-radius: 11;" text="DELETE" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@delete.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
+            <Button fx:id="edit" maxHeight="40.0" minHeight="0.0" minWidth="100.0" mnemonicParsing="false" onAction="#onEdit" prefHeight="45.0" prefWidth="0.0" style="-fx-background-color: WHITE; -fx-background-radius: 11;" text="EDIT">
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@editing.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="Calibri Bold" size="12.0" />
+               </font></Button>
+            <Button fx:id="undo" maxHeight="40.0" minHeight="0.0" minWidth="100.0" mnemonicParsing="false" onAction="#onUndo" prefHeight="45.0" prefWidth="0.0" style="-fx-background-color: #006ee6; -fx-background-radius: 11;" text="UNDO" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@undo.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
+          <Button maxHeight="40.0" minHeight="0.0" minWidth="100.0" mnemonicParsing="false" onAction="#onRedo" prefHeight="45.0" prefWidth="0.0" style="-fx-background-color: #A9A9A9; -fx-background-radius: 11;" text="REDO" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@redo-arrow-symbol.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
          </children>
       </HBox>
-      <Label layoutX="192.0" layoutY="-1.0" text="Appointments">
+      <Label layoutX="255.0" layoutY="33.0" text="Appointments">
          <font>
             <Font size="29.0" />
          </font>
       </Label>
+      <VBox layoutX="-2.0" prefHeight="550.0" prefWidth="223.0" style="-fx-background-color: #2F4F4F;">
+         <children>
+            <ImageView fitHeight="52.0" fitWidth="223.0" pickOnBounds="true" preserveRatio="true" />
+            <HBox prefHeight="43.0" prefWidth="238.0">
+               <children>
+                  <Label fx:id="name" alignment="CENTER" lineSpacing="5.0" prefHeight="43.0" prefWidth="202.0" text=" Hi, Lorem Ipsum" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri Bold" size="17.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@user.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Label>
+               </children>
+            </HBox>
+            <ImageView fitHeight="52.0" fitWidth="223.0" pickOnBounds="true" preserveRatio="true" />
+            <Button fx:id="taskLists" alignment="BOTTOM_LEFT" graphicTextGap="10.0" maxHeight="46.0" maxWidth="226.0" minHeight="45.0" minWidth="69.0" mnemonicParsing="false" onAction="#onTaskList" prefHeight="46.0" prefWidth="69.0" style="-fx-background-color: #2F4F4F;" text="Task List" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@task.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="Calibri" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="machineBooking" alignment="BOTTOM_LEFT" graphicTextGap="10.0" maxHeight="25.0" maxWidth="80.0" minHeight="45.0" minWidth="223.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #2F4F4F;" text="Machine Booking" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@BookingIcon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="Calibri" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>
