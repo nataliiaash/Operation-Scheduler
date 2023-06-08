@@ -127,7 +127,7 @@ public class TaskListController{
         table.setItems(taskObservableList);
     }
     public void onGoToDiary(ActionEvent e) throws IOException {
-        SceneLoader.loadScene("MainScreen.fxml", e);
+        SceneLoader.loadScene("Diary.fxml", e);
     }
     @FXML
     public void initialize() {

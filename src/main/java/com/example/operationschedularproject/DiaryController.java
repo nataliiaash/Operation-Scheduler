@@ -9,7 +9,7 @@ import javafx.scene.control.Alert;
 import java.io.IOException;
 import java.util.*;
 
-public class MainScreenController {
+public class DiaryController {
     @FXML
     Label name;
     HealthProfessional currentUser = LogInController.user;

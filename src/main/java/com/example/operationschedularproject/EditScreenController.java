@@ -10,7 +10,7 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
-public class EditScreenController extends MainScreenController implements Initializable {
+public class EditScreenController extends DiaryController implements Initializable {
     @FXML
     TextField patientNameField, startField, endField, appointmentTypeField;
     @FXML
@@ -42,6 +42,6 @@ public class EditScreenController extends MainScreenController implements Initia
         appointmentObservableList.remove(selectedAppointment);
         appointmentObservableList.add(editedAppointment);
         undoStack.push(new UndoAction(ActionType.EDIT, editedAppointment));
-        SceneLoader.loadScene("MainScreen.fxml", e);
+        SceneLoader.loadScene("Diary.fxml", e);
     }
 }

@@ -1,10 +1,11 @@
 package com.example.operationschedularproject;
 
-import com.example.operationschedularproject.LinkedList.EmptyException;
 import com.example.operationschedularproject.LinkedList.LinkedList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class TaskListTest {
 
@@ -20,16 +21,14 @@ class TaskListTest {
 
     @Test
     void add_ValidTask_AddsToLinkedList() {
-        Task task = new Task();
-
+        Task task = new Task("Hello world","HIGH");
         taskList.add(task);
-
         assertTrue(taskLinkedList.contains(task));
     }
 
     @Test
     void delete_ExistingTask_RemovesFromLinkedList() {
-        Task task = new Task();
+        Task task = new Task("Hello world","HIGH");
         taskLinkedList.addLast(task);
 
         taskList.delete(task);
@@ -39,7 +38,7 @@ class TaskListTest {
 
     @Test
     void delete_NonExistingTask_DoesNotRemoveFromLinkedList() {
-        Task task = new Task();
+        Task task = new Task("Hello world","HIGH");
 
         taskList.delete(task);
 
@@ -48,8 +47,8 @@ class TaskListTest {
 
     @Test
     void edit_ExistingTask_ReplacesWithNewTask() {
-        Task task = new Task();
-        Task newTask = new Task();
+        Task task = new Task("Hello world","HIGH");
+        Task newTask = new Task("Hello Earth","MEDIUM");
         taskLinkedList.addLast(task);
 
         taskList.edit(task, newTask);
@@ -60,8 +59,8 @@ class TaskListTest {
 
     @Test
     void edit_NonExistingTask_DoesNotModifyLinkedList() {
-        Task task = new Task();
-        Task newTask = new Task();
+        Task task = new Task("Hello world","HIGH");
+        Task newTask = new Task("Hello world","HIGH");
 
         taskList.edit(task, newTask);
 

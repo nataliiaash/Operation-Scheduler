@@ -7,7 +7,7 @@ import javafx.scene.control.*;
 
 import java.io.IOException;
 
-public class AddScreenController extends MainScreenController {
+public class AddScreenController extends DiaryController {
     @FXML
     TextField patientNameField, appointmentTypeField, startField, endField;
     @FXML
@@ -42,7 +42,7 @@ public class AddScreenController extends MainScreenController {
         Appointment appointment = new Appointment(patientName, type, date, startTime, endTime);
         if(!InputValidator.isAddAppointmentValid(currentUser,appointment)){
             AlertDisplay.showAlert(Alert.AlertType.ERROR, "Error", "You can't add this appointment as this will overlap with your another appointment");
-            SceneLoader.loadScene("MainScreen.fxml", e);
+            SceneLoader.loadScene("Diary.fxml", e);
             return;
         }
         currentUser.diary.add(appointment);
@@ -53,7 +53,7 @@ public class AddScreenController extends MainScreenController {
         for (int i = 0; i < currentUser.diary.appointments.size(); i++){
             appointmentObservableList.add(currentUser.diary.appointments.get(i).value);
         }
-        SceneLoader.loadScene("MainScreen.fxml", e);
+        SceneLoader.loadScene("Diary.fxml", e);
     }
     public void onAddTask(ActionEvent e) throws IOException {
         String taskDescription = description.getText();

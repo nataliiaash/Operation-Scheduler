@@ -39,7 +39,7 @@ public class LogInController extends Menu {
             message.setText("Username or Password not correct");
         }
          else {
-             SceneLoader.loadScene("MainScreen.fxml", e);
+             SceneLoader.loadScene("Diary.fxml", e);
         }
     }
 
