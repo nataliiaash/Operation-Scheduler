@@ -33,7 +33,7 @@
                   </ImageView>
                </graphic>
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="Calibri Bold" size="15.0" />
                </font></Button>
             <Button fx:id="delete" maxHeight="40.0" minHeight="0.0" minWidth="100.0" mnemonicParsing="false" onAction="#onDelete" prefHeight="30.0" prefWidth="0.0" style="-fx-background-color: #EE4B2B; -fx-background-radius: 11;" text="DELETE" textFill="WHITE">
                <graphic>
@@ -44,7 +44,7 @@
                   </ImageView>
                </graphic>
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="Calibri Bold" size="15.0" />
                </font></Button>
             <Button fx:id="edit" maxHeight="40.0" minHeight="0.0" minWidth="100.0" mnemonicParsing="false" onAction="#onEdit" prefHeight="45.0" prefWidth="0.0" style="-fx-background-color: WHITE; -fx-background-radius: 11;" text="EDIT">
                <graphic>
@@ -55,7 +55,7 @@
                   </ImageView>
                </graphic>
                <font>
-                  <Font name="Calibri Bold" size="12.0" />
+                  <Font name="Calibri Bold" size="15.0" />
                </font></Button>
             <Button fx:id="undo" maxHeight="40.0" minHeight="0.0" minWidth="100.0" mnemonicParsing="false" onAction="#onUndo" prefHeight="45.0" prefWidth="0.0" style="-fx-background-color: #006ee6; -fx-background-radius: 11;" text="UNDO" textFill="WHITE">
                <graphic>
@@ -66,7 +66,7 @@
                   </ImageView>
                </graphic>
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="Calibri Bold" size="15.0" />
                </font></Button>
           <Button maxHeight="40.0" minHeight="0.0" minWidth="100.0" mnemonicParsing="false" onAction="#onRedo" prefHeight="45.0" prefWidth="0.0" style="-fx-background-color: #A9A9A9; -fx-background-radius: 11;" text="REDO" textFill="WHITE">
                <graphic>
@@ -77,7 +77,7 @@
                   </ImageView>
                </graphic>
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="Calibri Bold" size="15.0" />
                </font></Button>
          </children>
       </HBox>
