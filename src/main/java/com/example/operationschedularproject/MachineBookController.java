@@ -12,6 +12,9 @@ import javax.crypto.Mac;
 import java.io.IOException;
 import java.util.Stack;
 
+/**
+ * This class is similar to th diaryController class
+ */
 public class MachineBookController {
 
     @FXML

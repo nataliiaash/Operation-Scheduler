@@ -130,6 +130,18 @@
                   <Font name="Calibri" size="14.0" />
                </font>
             </Button>
+            <Button fx:id="machineBooking1" alignment="BOTTOM_LEFT" graphicTextGap="10.0" maxHeight="25.0" maxWidth="80.0" minHeight="45.0" minWidth="223.0" mnemonicParsing="false" onAction="#onSearch" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: alpha;" text="Search Appointments" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@search.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="Calibri" size="14.0" />
+               </font>
+            </Button>
          </children>
       </VBox>
    </children>

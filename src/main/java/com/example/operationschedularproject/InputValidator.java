@@ -3,12 +3,19 @@ package com.example.operationschedularproject;
 import java.util.regex.Pattern;
 
 public class InputValidator {
+    //regex for time format
     private static String timeRegex = "^([01]?\\d|2[0-3]):([0-5]?\\d)$";
-
+ //time validatio method
     public static boolean timeValidation(String time) {
         return Pattern.matches(timeRegex, time);
     }
 
+    /**
+     * method to check overlapping appointments
+     * @param healthProfessional
+     * @param appointment
+     * @return
+     */
     public static boolean isAddAppointmentValid(HealthProfessional healthProfessional, Appointment appointment) {
         for (int i = 0; i < healthProfessional.diary.appointments.size(); i++) {
             Appointment appointment1 = healthProfessional.diary.appointments.get(i).value;
@@ -20,6 +27,13 @@ public class InputValidator {
         }
         return true;
     }
+
+    /**
+     * method to check overlapping machine bookings
+     * @param healthProfessional
+     * @param machine
+     * @return
+     */
     public static boolean isAddMachineValid(HealthProfessional healthProfessional, Machine machine) {
         for (int i = 0; i < healthProfessional.machineBooker.getMachineLinkedList().size(); i++) {
             Machine machine1 = healthProfessional.machineBooker.getMachineLinkedList().get(i).value;
