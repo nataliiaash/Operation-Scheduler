@@ -22,17 +22,25 @@ public class CreateAccController extends Menu {
     Stage stage;
     Scene scene;
 
+    /**
+     * create account button method
+     * @param e
+     * @throws IOException
+     */
     public void onCreate(ActionEvent e) throws IOException {
+        //geting all the inputs
         String inName = fullName.getText();
         String inAddress = address.getText();
         String inPosition = position.getText();
         String inUsername = username.getText();
         String inPass = password.getText();
+        //validating username and password
         if(!isUsernameValid(inUsername)){
             message.setText("Username invalid!");
         } else if(!isPasswordValid(inPass)){
             message.setText("Please enter a strong password");
         } else {
+            //creating a new user and saving to database
             HealthProfessional newUser = new HealthProfessional(inName, inPosition, inUsername, inPass);
             newUser.setLocation(inAddress);
             dataBase.add(newUser);
@@ -47,6 +55,12 @@ public class CreateAccController extends Menu {
             stage.show();
         }
     }
+
+    /**
+     * method for username validation
+     * @param username
+     * @return
+     */
     private boolean isUsernameValid(String username){
         for (int i = 0; i < username.length(); i++) {
 
@@ -56,6 +70,12 @@ public class CreateAccController extends Menu {
         }
         return true;
     }
+
+    /**
+     * method for password validation
+     * @param password
+     * @return
+     */
     private boolean isPasswordValid(String password){
         int UpperCaseLetter = 0;
         int SpecialChar = 0;

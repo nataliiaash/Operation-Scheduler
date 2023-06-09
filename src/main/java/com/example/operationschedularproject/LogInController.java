@@ -25,10 +25,16 @@ public class LogInController extends Menu {
     Stage stage;
     static HealthProfessional user;
 
+    /**
+     * on login button
+     * @param e
+     * @throws IOException
+     */
     @FXML
     public void onLogin(ActionEvent e) throws IOException {
         String inUserName = username.getText();
         String inPass = password.getText();
+        //validating username and password and displaying message
         if(inUserName.length() == 0 ){
             message.setText("Enter a valid Username");
         }
@@ -39,12 +45,16 @@ public class LogInController extends Menu {
             message.setText("Username or Password not correct");
         }
          else {
-            System.out.println(user.diary.appointments.size());
+             //if username and pasword mathces then giving user access to the app
              SceneLoader.loadScene("Diary.fxml", e);
         }
     }
 
-
+    /**
+     * on create account button
+     * @param e
+     * @throws IOException
+     */
     public void onCreate(ActionEvent e) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("CreateUserScreen.fxml"));
         root = loader.load();
@@ -56,6 +66,13 @@ public class LogInController extends Menu {
         stage.sizeToScene();
         stage.show();
     }
+
+    /**
+     * method to check is username and password matches or not
+     * @param username
+     * @param password
+     * @return
+     */
     private boolean isLoginValid(String username, String password){
         if(username.equals("admin") && password.equals("admin")){
             user = new HealthProfessional("admin","admin","admin","admin");

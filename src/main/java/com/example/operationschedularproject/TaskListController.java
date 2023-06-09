@@ -10,7 +10,9 @@ import javafx.scene.control.*;
 
 import java.io.IOException;
 import java.util.Stack;
-
+/**
+ * This class is similar to the diaryController class
+ */
 public class TaskListController{
     @FXML
     Label name;

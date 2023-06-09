@@ -17,6 +17,15 @@ public class Appointment implements Serializable {
 
     }
 
+    /**
+     * constructor for appointment
+     * @param patient
+     * @param treatmentType
+     * @param date
+     * @param start_time
+     * @param end_time
+     */
+
     public Appointment(String patient, String treatmentType, String date, String start_time, String end_time) {
         this.patient = patient;
         this.date = date;
@@ -26,34 +35,59 @@ public class Appointment implements Serializable {
         this.HealthProfessionalsInvolved = new LinkedList<>();
     }
 
+    /**
+     * accessor
+     * @return
+     */
     public String getDate() {
         return date;
     }
-
+    /**
+     *mutator
+     * @return
+     */
     public void setDate(String date) {
         this.date = date;
     }
-
+    /**
+     *mutator
+     * @return
+     */
     public String getStartTime() {
         return startTime;
     }
-
+    /**
+     *mutator
+     * @return
+     */
     public void setStartTime(String start_time) {
         this.startTime = start_time;
     }
-
+    /**
+     *accessor
+     * @return
+     */
     public String getEndTime() {
         return endTime;
     }
-
+    /**
+     *mutator
+     * @return
+     */
     public void setEndTime(String endTime) {
         this.endTime = endTime;
     }
-
+    /**
+     *accessor
+     * @return
+     */
     public String getTreatmentType() {
         return treatmentType;
     }
-
+    /**
+     *mutator
+     * @return
+     */
     public void setTreatmentType(String treatmentType) {
         this.treatmentType = treatmentType;
     }
